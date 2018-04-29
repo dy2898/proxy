@@ -3,6 +3,7 @@ version: '2'
 services:
   ss:
     image: ss
+    restart: always   
     depends_on:
       - nginx
       - v2ray
@@ -18,6 +19,7 @@ services:
 
   v2ray:
     image: v2ray
+    restart: always
     networks:
      - proxy
     environment:
@@ -25,8 +27,9 @@ services:
 
   nginx:
     image: nginx
+    restart: always
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - v2ray
     networks:
