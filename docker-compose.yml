@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  ss:
+    image: ss
+    depends_on:
+      - nginx
+      - v2ray
+    ports:
+      - 8080:8080
+      - 8080:8080/udp
+    networks:
+     - proxy
+    environment:
+     - IP=nginx
+     - PORT=80
+     - PASSWD=passwd
+
+  v2ray:
+    image: v2ray
+    networks:
+     - proxy
+    environment:
+     - ID=e92d4093-dbe9-4d6a-b615-e4971ee62fac
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - v2ray
+    networks:
+     - proxy
+    environment:
+     - IP=v2ray
+     - PORT=8080
+
+networks:
+  proxy:
