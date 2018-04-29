@@ -1,3 +1,3 @@
-＃ 代理
+＃ proxy
 
 nginx&shadowsocks-libev&v2ray
