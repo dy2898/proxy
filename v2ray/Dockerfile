@@ -7,11 +7,9 @@ ADD config.json /etc/
 
 RUN apk update \
         && apk add curl bash \
-        && mkdir /var/log/v2ray \
-        && mkdir  /etc/v2ray \
         && chmod +x /entrypoint.sh \
         && rm -rf /var/cache/apk/* \
-        &&curl -L -H "Cache-Control: no-cache" -o v2ray.zip http://github.com/v2ray/v2ray-core/releases/download/v$VER/v2ray-linux-64.zip \
+        && curl -L -H "Cache-Control: no-cache" -o v2ray.zip http://github.com/v2ray/v2ray-core/releases/download/v$VER/v2ray-linux-64.zip \
         && unzip v2ray.zip \
         && mv ./v2ray-v$VER-linux-64/v2ray /usr/local/bin/ \
         && mv ./v2ray-v$VER-linux-64/v2ctl /usr/local/bin/ \
