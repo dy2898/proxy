@@ -18,7 +18,9 @@
 			"network":"ws",
 			 "wsSettings": {
                          "path": "/ss/"
+				 }
 		}
+			
         },
         "outbound": {
                 "protocol": "freedom",
