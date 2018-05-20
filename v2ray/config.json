@@ -1,52 +1,51 @@
 {
-        "log": {
-                "loglevel": "warning"
-        },
-        "inbound": {
-                "port": 8080,
-                "listen":"0.0.0.0",
-                "protocol": "vmess",
-                "settings": {
-                        "clients": [
-                                {
-                                        "id": "ID",
-                                        "alterId": 64
-                                }
-                        ]
-                },
-		"streamSettings":{
-			"network":"ws",
-			 "wsSettings": {
-                         "path": "/ss/"
-				 }
-		}
-			
-        },
-	"inboundDetour": [
-        {
-	"port": 16888,
-        "protocol": "vmess",
+    "log": {
+        "loglevel": "warning"
+    }, 
+    "inbound": {
+        "port": 8080, 
+        "listen": "0.0.0.0", 
+        "protocol": "vmess", 
         "settings": {
             "clients": [
                 {
-                    "id": "ID",
+                    "id": "ID", 
                     "alterId": 64
                 }
             ]
-        },
+        }, 
         "streamSettings": {
-            "network": "kcp",
-		"kcpSettings": {
-                "congestion": true,
-                "header": {
-                    "type": "srtp"
+            "network": "ws", 
+            "wsSettings": {
+                "path": "/ss/"
+            }
+        }
+    }, 
+    "inboundDetour": [
+        {
+            "port": 16888, 
+            "protocol": "vmess", 
+            "settings": {
+                "clients": [
+                    {
+                        "id": "ID", 
+                        "alterId": 64
+                    }
+                ]
+            }, 
+            "streamSettings": {
+                "network": "kcp", 
+                "kcpSettings": {
+                    "congestion": true, 
+                    "header": {
+                        "type": "srtp"
+                    }
                 }
+            }
         }
-        }
-	}
-    ],
-        "outbound": {
-                "protocol": "freedom",
-                "settings": {}
-        }
+    ], 
+    "outbound": {
+        "protocol": "freedom", 
+        "settings": { }
+    }
 }
