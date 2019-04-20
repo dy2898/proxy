@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV PASSWD="passwd" VER="3.2.0" IP="0.0.0.0" PORT="80"
+ENV PASSWD="passwd" VER="3.2.5" IP="0.0.0.0" PORT="80"
 
 RUN apk upgrade --update \
     && apk add bash libsodium \
